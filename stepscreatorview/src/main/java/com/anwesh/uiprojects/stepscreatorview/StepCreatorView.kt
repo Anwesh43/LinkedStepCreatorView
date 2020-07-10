@@ -203,4 +203,13 @@ class StepCreatorView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : StepCreatorView {
+            val view : StepCreatorView = StepCreatorView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
