@@ -27,7 +27,7 @@ fun Float.sinify() : Float = Math.sin(this * Math.PI).toFloat()
 
 fun Canvas.drawStepLine(i : Int, scale : Float, w : Float, h : Float, paint : Paint) {
     val wGap : Float = w / (lines)
-    val hGap : Float = h / (lines)
+    val hGap : Float = h / (2 * lines)
     val sf : Float = scale.sinify()
     val sf1 : Float = sf.divideScale(0, (parts + 1)).divideScale(i, lines)
     val sf2 : Float = sf.divideScale(1, (parts + 1)).divideScale(i, lines)
@@ -35,7 +35,7 @@ fun Canvas.drawStepLine(i : Int, scale : Float, w : Float, h : Float, paint : Pa
     save()
     translate(wGap * i, hGap * (i + 1) * sf2)
     drawLine(0f, 0f, wGap * sf1, 0f, paint)
-    drawLine(wGap, -hGap * (i + 1) * sf3, 0f, 0f, paint)
+    drawLine(wGap, 0f, wGap, hGap * sf3, paint)
     restore()
 }
 
